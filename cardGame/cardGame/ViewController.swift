@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     var count:Int = 0
     var display:String = "FLIPs: "
-    var current:Int = 0
+    var current:Bool = false
 
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -41,27 +41,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btn_Flip(_ sender: Any) {
-        if(current == 0){
-            current = 1
-            count = 0
-            for button in cardButtons{
-                button.setTitle("",for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        count = 0
+        for button in cardButtons{
+            if(current && button.currentTitle == ""){ button.sendActions(for: .touchUpInside)
+            }else if (!current && button.currentTitle != ""){
+                button.sendActions(for: .touchUpInside)
             }
-        }else{
-            current = 0
-            count = 0
-            for (c,button) in cardButtons.enumerated(){
-                let emoji = Emojis[c]
-                button.setTitle(emoji,for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0.6899590735, green: 1, blue: 0.7358576945, alpha: 1)
-            }
-
+                
         }
-        flipCount.text = display + String(count)
+        current = !current;
+        count = 0;
+        self.flipCount.text = display + String(count);
     }
-    
-
-
 }
-
