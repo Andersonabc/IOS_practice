@@ -32,9 +32,12 @@ class ViewController: UIViewController {
     //emojiDic = [Int:String]()
     
     @IBAction func touchCard(_ sender: UIButton) {
-        count = count + 1
+        
         if let cardNumber = cardButtons.firstIndex(of: sender){
             print("cardNumber = \(String(describing: cardNumber))")
+            if(!game.getCard(at: cardNumber).isMatched){
+                count = count + 1
+            }
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         }else{
@@ -59,10 +62,12 @@ class ViewController: UIViewController {
             let card = game.cards[index]
             if card.isFaceUp{
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0):#colorLiteral(red: 0.6899590735, green: 1, blue: 0.7358576945, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.6896845102, green: 0.989905417, blue: 0.736236155, alpha: 0.5):#colorLiteral(red: 0.6899590735, green: 1, blue: 0.7358576945, alpha: 1)
             }else{
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                if(!card.isMatched){
+                    button.setTitle("", for: UIControl.State.normal)
+                    button.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                }
             }
         }
     }

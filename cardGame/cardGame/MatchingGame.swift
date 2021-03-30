@@ -56,6 +56,11 @@ class MatchingGame{
             cards[ind].isFaceUp = false
             cards[ind].isMatched = false
         }
+        current = false
+    }
+    
+    func getCard(at Index: Int) -> Card{
+        return cards[Index]
     }
 
     init(numberOfPairsOfCards: Int){
