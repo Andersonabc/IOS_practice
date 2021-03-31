@@ -13,7 +13,7 @@ class MatchingGame{
         get{
             var foundIndex:Int?
             for index in cards.indices{
-                if cards[index].isFaceUp{
+                if cards[index].isFaceUp, !cards[index].isMatched{
                     if foundIndex == nil{
                         foundIndex = index
                     }else{
@@ -25,7 +25,9 @@ class MatchingGame{
         }
         set{ // Default: newvalue
             for index in cards.indices{
-                cards[index].isFaceUp = (index == newValue)
+                if(!cards[index].isMatched){
+                    cards[index].isFaceUp = (index == newValue)
+                }
             }
         }
     }
@@ -34,7 +36,6 @@ class MatchingGame{
     //var cards: [Card] = [Card]()
     //var cards: [Card] = []
     //var cards: = [Card]()
-    //把computing property運用在按兩下同一張牌和match的牌不翻回去
     func chooseCard(at index: Int){
         if !cards[index].isMatched{
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index{
@@ -43,17 +44,9 @@ class MatchingGame{
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true
-                indexOfOneAndOnlyFaceUpCard = nil
             }else if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex == index{
                 cards[index].isFaceUp = false
-                indexOfOneAndOnlyFaceUpCard = nil
             }else{
-                for flipDownIndex in cards.indices{
-                    if !cards[flipDownIndex].isMatched {
-                        cards[flipDownIndex].isFaceUp = false
-                    }
-                }
-                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
