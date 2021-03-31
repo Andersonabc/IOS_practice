@@ -9,12 +9,32 @@ import Foundation
 
 class MatchingGame{
     
-    var indexOfOneAndOnlyFaceUpCard: Int?
+    var indexOfOneAndOnlyFaceUpCard: Int?{
+        get{
+            var foundIndex:Int?
+            for index in cards.indices{
+                if cards[index].isFaceUp{
+                    if foundIndex == nil{
+                        foundIndex = index
+                    }else{
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set{ // Default: newvalue
+            for index in cards.indices{
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     var cards: Array<Card> = Array()
     var current:Bool = false
     //var cards: [Card] = [Card]()
     //var cards: [Card] = []
     //var cards: = [Card]()
+    //把computing property運用在按兩下同一張牌和match的牌不翻回去
     func chooseCard(at index: Int){
         if !cards[index].isMatched{
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index{
@@ -31,7 +51,6 @@ class MatchingGame{
                 for flipDownIndex in cards.indices{
                     if !cards[flipDownIndex].isMatched {
                         cards[flipDownIndex].isFaceUp = false
-                        
                     }
                 }
                 cards[index].isFaceUp = true
