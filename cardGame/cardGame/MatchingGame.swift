@@ -36,12 +36,14 @@ class MatchingGame{
     //var cards: [Card] = [Card]()
     //var cards: [Card] = []
     //var cards: = [Card]()
-    func chooseCard(at index: Int){
+    func chooseCard(at index: Int) -> Int{
         if !cards[index].isMatched{
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index{
                 if cards[matchIndex].Identifier == cards[index].Identifier {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    cards[index].isFaceUp = true
+                    return 5
                 }
                 cards[index].isFaceUp = true
             }else if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex == index{
@@ -49,7 +51,9 @@ class MatchingGame{
             }else{
                 indexOfOneAndOnlyFaceUpCard = index
             }
+            return -1
         }
+        return 0
     }
     
     func flipAllCard(){
@@ -70,6 +74,7 @@ class MatchingGame{
         }
         current = false
     }
+    
     
     func getCard(at Index: Int) -> Card{
         return cards[Index]

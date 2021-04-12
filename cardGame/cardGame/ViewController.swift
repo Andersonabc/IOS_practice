@@ -14,6 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet weak var flipCount: UILabel!
+    @IBOutlet weak var pointCount: UILabel!
+    var point:Int = 0{
+        didSet{
+            pointCount.text = "You got: \(point) points!"
+        }
+    }
     var count:Int = 0{
         didSet{
             flipCount.text = "Flips: \(count)"
@@ -38,7 +44,7 @@ class ViewController: UIViewController {
             if(!game.getCard(at: cardNumber).isMatched){
                 count = count + 1
             }
-            game.chooseCard(at: cardNumber)
+            point += game.chooseCard(at: cardNumber)
             updateViewFromModel()
         }else{
             print("not in the collection")
@@ -49,12 +55,12 @@ class ViewController: UIViewController {
     @IBAction func btn_Flip(_ sender: Any) {
         game.flipAllCard()
         updateViewFromModel()
-        count = 0
     }
     @IBAction func btn_reset(_ sender: Any) {
         game.resetAllCard()
         updateViewFromModel()
         count = 0
+        point = 0
     }
     func updateViewFromModel(){
         for index in cardButtons.indices{
