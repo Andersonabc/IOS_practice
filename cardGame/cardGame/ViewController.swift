@@ -33,9 +33,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     var Emojis = ["🥵", "👾", "🤔", "🥱", "🥶", "🤯", "🤩", "😈"]
-    var emojiDic:Dictionary<Int,String> = Dictionary<Int,String>()
-    //emojiDic = Dictionary<Int,String>()
-    //emojiDic = [Int:String]()
+    
+
     
     @IBAction func touchCard(_ sender: UIButton) {
         
@@ -82,12 +81,16 @@ class ViewController: UIViewController {
 //        return Emojis[card.Identifier-1]
 //    }
     
+    
+    //var emojiDic:Dictionary<Int,String> = Dictionary<Int,String>()
+    //var emojiDic = Dictionary<Int,String>()
+    var emojiDic = [Card:String]()
     func emoji(for card: Card) -> String{
-        if emojiDic[card.Identifier] == nil, Emojis.count > 0{
+        if emojiDic[card] == nil, Emojis.count > 0{
             let randomIndex = Int(arc4random_uniform(UInt32(Emojis.count)))
-            emojiDic[card.Identifier] = Emojis.remove(at: randomIndex)
+            emojiDic[card] = Emojis.remove(at: randomIndex)
         }
-        return emojiDic[card.Identifier] ?? "?"
+        return emojiDic[card] ?? "?"
     }
 
 }

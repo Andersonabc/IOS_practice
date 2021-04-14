@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Card{
+struct Card:Hashable{
     static var identifierFactory = 0
     var isFaceUp = false
     var isMatched = false
-    var Identifier:Int    //use ID, not emoji
+    private var Identifier:Int    //use ID, not emoji
 
     static func getUniqueIdentifier() -> Int{
         identifierFactory += 1
@@ -21,5 +21,12 @@ struct Card{
     init(){
         self.Identifier = Card.getUniqueIdentifier()
     }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(Identifier)
+    }
+    static func == (lhs: Card, rhs: Card) -> Bool{
+        return lhs.Identifier == rhs.Identifier
+    }
+    
 
 }
