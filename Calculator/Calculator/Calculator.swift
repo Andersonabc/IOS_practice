@@ -76,6 +76,9 @@ class Calculator{
                 symbol.remove(at: ind)
                 ind = 0
             }else if(symbol[ind] == "÷"){
+                if(arr[ind+1] == 0.0){
+                    return "0"
+                }
                 arr[ind] = arr[ind]/arr[ind+1]
                 arr.remove(at: ind+1)
                 symbol.remove(at: ind)
