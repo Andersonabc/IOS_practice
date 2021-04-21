@@ -17,6 +17,10 @@ class  equation{
         record += input
     }
     
+    func removeTail(){
+        record.removeLast()
+    }
+    
     func getEqua()->String{
         return self.record
     }

@@ -211,7 +211,6 @@
                                     <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="clean_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xbd-sf-a0w"/>
                                     <action selector="touchNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JEE-Dh-ryJ"/>
                                 </connections>
                             </button>
@@ -222,9 +221,6 @@
                                 <state key="normal" title="%">
                                     <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="clean_btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8QH-w8-jiq"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOe-rv-wFP">
                                 <rect key="frame" x="18" y="142" width="354" height="74"/>
