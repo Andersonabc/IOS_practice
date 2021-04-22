@@ -64,6 +64,10 @@ class Calculator{
                 processView += ("±(" + (getNumber(at: Double(strNumber) ?? 0) + ")"))
                 arr.append(0.0 - ((Double(strNumber) ?? 0)))
                 skipOne = true
+            }else if(String(temp) == "%"){
+                processView += (getNumber(at: Double(strNumber) ?? 0))+"%"
+                arr.append(((Double(strNumber) ?? 0)) / 100)
+                skipOne = true
             }else{
                 strNumber += String(temp)
             }

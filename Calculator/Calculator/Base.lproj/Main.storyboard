@@ -221,6 +221,9 @@
                                 <state key="normal" title="%">
                                     <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchNumber:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nm4-wH-9zZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOe-rv-wFP">
                                 <rect key="frame" x="18" y="142" width="354" height="74"/>
@@ -230,7 +233,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-4p-3YB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-4p-3YB">
                                 <rect key="frame" x="18" y="216" width="354" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -261,6 +264,7 @@
                         <outletCollection property="buttons" destination="w7t-Gb-8Md" collectionClass="NSMutableArray" id="E5b-gg-s7O"/>
                         <outletCollection property="buttons" destination="Zp0-zb-wqD" collectionClass="NSMutableArray" id="yT8-oC-wtf"/>
                         <outletCollection property="buttons" destination="Cuu-0R-a7n" collectionClass="NSMutableArray" id="0Cy-KZ-Pqq"/>
+                        <outletCollection property="buttons" destination="m9o-3j-h9y" collectionClass="NSMutableArray" id="3zU-Nq-s5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
